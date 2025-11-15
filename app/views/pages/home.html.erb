@@ -1,9 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 class="p-2">location: app/views/pages/home.html.erb</h1>
 <% if current_user %>
   <%= link_to "Start Chatting", rooms_path %>
   <%= button_to "Logout", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to "Login", new_user_session_path %>
-  <%= link_to "Sign Up", new_user_registration_path %>
+  <div class="p-2 bg-blue-200">
+    <%= link_to "Login", new_user_session_path, class: 'bg-green-500 p-2' %>
+    <%= link_to "Sign Up", new_user_registration_path, class: 'bg-red-600 p-2' %>
+  </div>
 <% end %>
