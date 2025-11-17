@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   
   resources :rooms
   root "pages#home"
-  get 'user/:id', to: 'users#show', as: 'user'
+  get "user/:id", to: "users#show", as: "user"
+  resources :rooms do
+    resources :messages
+  end
 end
