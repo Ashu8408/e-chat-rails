@@ -21,16 +21,18 @@
   </div>
 
   <!-- RIGHT ROOM CHAT PANEL -->
-  <div id="right_room_container"
-       class="w-2/3 bg-gray-900 p-4 overflow-y-auto">RIGHT ROOM CHAT PANEL
-
-    <div id="room_container"
-      class="col-md-8 col-sm-8 bg-dark text-light">
-        <% if @single_room %>
-          <div id="single_room">
-            <h4 class="text-center"> <%= @user&.email || @single_room.name %> </h4>
+  <div id="right_room_container" class="w-2/3 bg-gray-900 p-4 overflow-y-auto">
+    <% if @single_room %> 
+      <div id="single_room">
+        <h4 id=chat-room-heading class="text-center text-2xl mb-4"><%= @user&.email || @single_room.name %></h4>
+        <%= turbo_stream_from @single_room %>
+        <div id="messages" class="space-y-3 max-h-full overflow-y-auto border border-gray-700 p-4 rounded-lg bg-gray-800">
+          <%= render @messages %>
+          <div class="pt-2">
+            <%= render 'layouts/new_message_form' %>
           </div>
-        <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
 </div>
