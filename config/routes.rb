@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   
   resources :rooms
   root "pages#home"
+  get 'user/:id', to: 'users#show', as: 'user'
 end

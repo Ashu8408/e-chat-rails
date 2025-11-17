@@ -1,0 +1,5 @@
+Room.create(name: 'Room 1')
+Room.create(name: 'Room 2')
+
+User.create!(email: 'ghost@cod.com', password: 'gh0st@cod', password_confirmation: 'gh0st@cod')
+
