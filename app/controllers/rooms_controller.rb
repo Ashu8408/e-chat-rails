@@ -6,6 +6,7 @@ class RoomsController < ApplicationController
     @rooms = Room.public_rooms
 
     @users = User.all_except(current_user)
+    @viewer_id = current_user.id
     render "index"
   end
 
@@ -19,10 +20,12 @@ class RoomsController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
 
     @users = User.all_except(current_user)
+    @viewer_id = current_user.id
     render "index"
   end
 
   def create
     @room = Room.create(name: params["room"]["name"])
+    @viewer_id = current_user.id
   end
 end
